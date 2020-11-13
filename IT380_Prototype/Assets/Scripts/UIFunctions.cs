@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using TMPro;
 
+//This script is responsible for moving between scenes and slides in the Introduction scene.
 public class UIFunctions : MonoBehaviour
 {
     [Header("Title Scene Properties", order = 0)]
