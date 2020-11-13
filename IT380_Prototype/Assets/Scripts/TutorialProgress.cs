@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -69,8 +68,12 @@ public class TutorialProgress : MonoBehaviour
         instructText.text = "";
         dir_4.SetActive(true);
         dTab.SetActive(true);
-        yield return new WaitUntil(() => (dFun.clicked));//Wait for user to click on dictionary tab
+        yield return new WaitUntil(() => (dFun.clickedDic));//Wait for user to click on dictionary tab
         StartCoroutine(dicTutorial());
+        yield return new WaitUntil(() => (dFun.clickedBack));//Wait for user to click on back tab
+        instructText.text = "Tutorial complete!";//Replace with decal
+        yield return new WaitForSeconds(2f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("00TitleScene");
     }
 
     IEnumerator writingTutorial()
@@ -85,6 +88,7 @@ public class TutorialProgress : MonoBehaviour
         yield return new WaitUntil(() => (wTask.inOrder));//Wait until player traces letter completetly.
         instructText.text = "Good job!"; //replace this line with displays the task complete animation in WritingTask.cs
         //turns writing task objects off and ingame items on; quits and continues basicInstructions
+        wTask.DeleteLines();
         wTask.DeleteLines();
         player.enabled = true;
         task.SetActive(false);
@@ -101,6 +105,13 @@ public class TutorialProgress : MonoBehaviour
         backTab.SetActive(true);
         dir_4.SetActive(false);
         //instructText.text = "Welcome to your dictionary!\nYou can review the letters you've learned here.";
-        yield return new WaitUntil(() => (m_Rigidbody2D.velocity.magnitude > 0));//Wait until player presses button
+        yield return new WaitUntil(() => (dFun.clickedBack));//Wait for user to click on back tab
+        //turns writing task objects off and ingame items on; quits and continues basicInstructions
+        player.enabled = true;
+        dictUI.SetActive(false);
+        items.SetActive(true);
+        dTab.SetActive(true);
+        backTab.SetActive(false);
+        dir_4.SetActive(false);
     }
 }

@@ -15,13 +15,13 @@ public class WritingTask : MonoBehaviour
 
     private List<int> pointsPressed = new List<int>();
     private List<int> answerKey = new List<int>() {0,1,2,3,4,5,6,7,8,9,10,11};//this should just be changed to an int and count how many points/children there under the trace gameobject.
-    private List<GameObject> linesMade = new List<GameObject>();
 
     [HideInInspector] public bool inOrder = false;
 
     //Displays what error the user has made when writing
     IEnumerator displayErr()
     {
+        DeleteLines();
         taskWrong.SetActive(true);
         yield return new WaitForSeconds(3f);
         taskWrong.SetActive(false);
@@ -62,21 +62,16 @@ public class WritingTask : MonoBehaviour
 
         return pointsInOrder;
     }
-
+    //Find all created lines in scene and delete them
     public void DeleteLines()
     {
-        for (int i = 0; i < linesMade.Count + 1; i++)
-        {
-            if (GameObject.Find("Ink(Clone)") != null)
-                    Destroy(GameObject.Find("Ink(Clone)"));
-        }
-        linesMade.Clear();
+        foreach (GameObject lines in GameObject.FindGameObjectsWithTag("Line"))
+            Destroy(lines);
     }
 
     void CreateDot()
     {
         currLine = Instantiate(ink, Vector3.zero, Quaternion.identity);
-        linesMade.Add(currLine); //Keeps track of how many lines the user made.
         lineRenderer = currLine.GetComponent<LineRenderer>();
         edgeCollider = currLine.GetComponent<EdgeCollider2D>();
         fingerPos.Clear();
@@ -93,8 +88,11 @@ public class WritingTask : MonoBehaviour
     void CreateLine(Vector2 newFingerPos)
     {
         fingerPos.Add(newFingerPos);
+        try {
         lineRenderer.positionCount++;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, newFingerPos);
+        }
+        catch (MissingReferenceException) { }
     }
 
     // Update is called once per frame
@@ -130,7 +128,7 @@ public class WritingTask : MonoBehaviour
                             {
                                 inOrder = ValidatePressedOrder();
 
-                                if (linesMade.Count != 0) //Delete lines regardless if in correct order or not; but display different messages depending on incorrect order or not
+                               //Delete lines regardless if in correct order or not; but display different messages depending on incorrect order or not
                                     DeleteLines();
 
                                 //if false empty the list for retry
@@ -177,8 +175,8 @@ public class WritingTask : MonoBehaviour
                                 if (isLast == "Last")
                                 {
                                     inOrder = ValidatePressedOrder();
-                                    if (linesMade.Count != 0)
-                                        DeleteLines();
+                                    
+                                    DeleteLines();
                                     //if false empty the list for retry
                                     if (!inOrder)
                                     {
