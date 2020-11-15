@@ -15,6 +15,9 @@ public class TutorialProgress : MonoBehaviour
 
     public GameObject dTab; //Place tab that opens dictionary in inspector.
     public GameObject backTab; //Place tab that opens back button in inspector.
+
+    public GameObject pen;//Place pen that allows user to write in inspector.
+
     public Rigidbody2D m_Rigidbody2D; //Place rigidbody of character in inspector. 
     public GameObject task; //Place writing task game object in inspector. 
     public GameObject taskUI; //Place writing task game object (UI) in inspector.
@@ -30,11 +33,20 @@ public class TutorialProgress : MonoBehaviour
     public WritingTask wTask;//Reference to WritingTask script from scene; put in inspector
     public DictionaryFunctions dFun;//References to DictionaryFunctions script; put in inspector
 
+    public GameObject settinPanel; 
     public TMP_Text instructText;//Reference to instructions in writing task.
 
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+    }
+
+    public void showSettings()
+    {
+        if (settinPanel.activeInHierarchy)
+            settinPanel.SetActive(false);
+        else
+            settinPanel.SetActive(true);
     }
 
     // Start is called before the first frame update
@@ -49,12 +61,14 @@ public class TutorialProgress : MonoBehaviour
         task.SetActive(false);
         taskUI.SetActive(false);
         dictUI.SetActive(false);
+        pen.SetActive(false);
         instructText.text = "";
         StartCoroutine(basicInstructions());
     }
 
     IEnumerator basicInstructions()
     {
+        yield return new WaitForSeconds(0.3f);
         yield return new WaitUntil(() => (m_Rigidbody2D.velocity.magnitude > 0));//Wait until player is moving.
         dir_1.SetActive(false);
         dir_2.SetActive(true);
@@ -82,11 +96,12 @@ public class TutorialProgress : MonoBehaviour
         task.SetActive(true);
         taskUI.SetActive(true);
         items.SetActive(false);
-        instructText.text = "Welcome to the writing task!\nPress the sound button to hear the letter.";
+        instructText.text = "Welcome to the writing task! Press the sound button to hear the letter.";
         yield return new WaitUntil(() => (audioPlayed));//Wait until player presses button
-        instructText.text = "Trace the letter by holding down the left mouse button and dragging it across the canvas.";
+        pen.SetActive(true);
+        instructText.text = "Trace the letter by holding down the left mouse button across the canvas.";
         yield return new WaitUntil(() => (wTask.inOrder));//Wait until player traces letter completetly.
-        instructText.text = "Good job!"; //replace this line with displays the task complete animation in WritingTask.cs
+        yield return new WaitForSeconds(2f);
         //turns writing task objects off and ingame items on; quits and continues basicInstructions
         wTask.DeleteLines();
         wTask.DeleteLines();
@@ -104,7 +119,11 @@ public class TutorialProgress : MonoBehaviour
         dTab.SetActive(false);
         backTab.SetActive(true);
         dir_4.SetActive(false);
-        //instructText.text = "Welcome to your dictionary!\nYou can review the letters you've learned here.";
+        instructText.text = "Letters have different forms depending on where it's placed in the word (1/3)...";
+        yield return new WaitForSeconds(5f);
+        instructText.text = "Most letters have 4 different forms: isolated, initial, medial, & final (2/3)...";
+        yield return new WaitForSeconds(5f);
+        instructText.text = "Use this dicitonary to review positions & assoicate them to words. (3/3)";
         yield return new WaitUntil(() => (dFun.clickedBack));//Wait for user to click on back tab
         //turns writing task objects off and ingame items on; quits and continues basicInstructions
         player.enabled = true;

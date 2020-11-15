@@ -61,7 +61,7 @@ public class UIFunctions : MonoBehaviour
     void IntializeIntro()
     {
         introText.text = "Welcome to Alefwabaa! \n\n" +
-                "Learn to write Arabic letters and words by helping NOOR through their \n" +
+                "Learn to write Arabic letters and words by helping Alibaba through his \n" +
                 "magical fairy tale!";
         introImage.SetActive(true);
         backButton.SetActive(false);

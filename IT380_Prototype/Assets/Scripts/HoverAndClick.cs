@@ -10,6 +10,12 @@ public class HoverAndClick : MonoBehaviour
     private SpriteRenderer currPic;
     public Sprite beforePic;
     public Sprite newSprite;
+    public Sprite hoverSprite;
+
+    void Hovering()
+    {
+        currPic.sprite = hoverSprite;
+    }
 
     void ChangeSprite()
     {
@@ -22,32 +28,40 @@ public class HoverAndClick : MonoBehaviour
         currPic = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    void OnMouseEnter()//If hovering over interactable, make item glow.
+    void OnMouseOver()//If hovering over interactable, make item glow.
     {
-        currPic.color = Color.yellow;
+        Hovering();
     }
 
     void OnDisable()
     {
-        currPic.color = Color.white;
+        currPic.sprite = beforePic;
     }
 
     void OnMouseExit()
     {
-        currPic.color = Color.white;
+        currPic.sprite = beforePic;
     }
 
     private void OnMouseDown()//If mouse clicked on interactable, make item do action.
     {
-        if (gameObject.CompareTag("Interactable"))
-            ChangeSprite();
+        if (gameObject.CompareTag("Interactable") && gameObject.GetComponent<AudioSource>() != null)
+                gameObject.GetComponent<AudioSource>().Play();
+        if (gameObject.CompareTag("Interactable") && gameObject.name == "Pillow")
+            StartCoroutine(tiltThis());
+        ChangeSprite();
         clicked = true;
+    }
+
+    IEnumerator tiltThis()
+    {
+        transform.RotateAround(transform.position, Vector3.forward, 30f);
+        yield return new WaitForSeconds(0.5f);
+        transform.RotateAround(transform.position, Vector3.forward, -30f);
     }
 
     private void OnMouseUp()
     {
-        if (gameObject.CompareTag("Interactable"))
-            currPic.sprite = beforePic;
         clicked = false;
     }
 

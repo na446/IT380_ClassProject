@@ -8,6 +8,7 @@ public class WritingTask : MonoBehaviour
     public GameObject ink;//a linerender prefab (w/ an edge collider) that will instantiate everytime user creates dots or lines
     public GameObject taskWrong;
     [HideInInspector] public GameObject currLine;
+    public GameObject taskDone; //references a game that displays "Good job!" when task is complete
 
     [HideInInspector] public LineRenderer lineRenderer;
     [HideInInspector] public EdgeCollider2D edgeCollider;
@@ -18,6 +19,14 @@ public class WritingTask : MonoBehaviour
 
     [HideInInspector] public bool inOrder = false;
 
+    IEnumerator displayDone()
+    {
+        DeleteLines();
+        taskDone.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        taskDone.SetActive(false);
+    }
+    
     //Displays what error the user has made when writing
     IEnumerator displayErr()
     {
@@ -59,6 +68,8 @@ public class WritingTask : MonoBehaviour
         }
 
         //Debug.Log("Valid order: " + pointsInOrder);
+        if (pointsInOrder)
+            StartCoroutine(displayDone());
 
         return pointsInOrder;
     }

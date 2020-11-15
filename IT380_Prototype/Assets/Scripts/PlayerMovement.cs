@@ -13,9 +13,16 @@ public class PlayerMovement : MonoBehaviour
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
     private Vector3 m_Velocity = Vector3.zero;
 
+    Animator animate;//reference to animator that animates player walking
+
     public void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        animate = GetComponent<Animator>();
     }
 
     public void Move(float move)
@@ -47,6 +54,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        if (horizontalMove != 0)
+            animate.SetBool("isWalking", true);
+        else
+            animate.SetBool("isWalking", false);
     }
 
     void FixedUpdate()

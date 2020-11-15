@@ -36,20 +36,23 @@ public class DictionaryFunctions : MonoBehaviour
     public void getImage()
     {
         string LText = "";
-        if (line1.text == "Alif")
-            LText = "alif";
-        currDef.sprite = Resources.Load<Sprite>("pos/pos_"+LText);
+
+        if (line1.text == "Alef")
+            LText = "alef";
+        else
+            LText = "0";
+        currDef.sprite = Resources.Load<Sprite>("pos/pos_" + LText);
     }
 
     public void notLearned()
     {
-        currDef.sprite = null;
+        currDef.sprite = Resources.Load<Sprite>("pos/pos_0");
     }
 
     public void firstTab()
     {
         getImage();
-        line1.text = "Alif";
+        line1.text = "Alef";
         line2.text = "Baa";
         line3.text = "Taa";
         line4.text = "Thaa";
@@ -58,10 +61,10 @@ public class DictionaryFunctions : MonoBehaviour
     public void lockedTab()
     {
         notLearned();
-        line1.text = "Baa";
-        line2.text = "Baa";
-        line3.text = "Baa";
-        line4.text = "Baa";
+        line1.text = "WIP";
+        line2.text = "WIP";
+        line3.text = "WIP";
+        line4.text = "WIP";
     }
 
     // Update is called once per frame
