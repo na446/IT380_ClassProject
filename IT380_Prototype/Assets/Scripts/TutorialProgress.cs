@@ -56,6 +56,7 @@ public class TutorialProgress : MonoBehaviour
         dir_2.SetActive(false);
         dir_3.SetActive(false);
         dir_4.SetActive(false);
+        hac3.enabled = false;
         dTab.SetActive(false);
         backTab.SetActive(false);
         task.SetActive(false);
@@ -75,6 +76,7 @@ public class TutorialProgress : MonoBehaviour
         yield return new WaitUntil(() => (hac.clicked || hac1.clicked || hac2.clicked));//Wait until player clicks on an interactable
         dir_2.SetActive(false);
         dir_3.SetActive(true);
+        hac3.enabled = true;
         yield return new WaitUntil(() => (hac3.clicked));//Wait until player clicks on desk
         dir_3.SetActive(false);
         StartCoroutine(writingTutorial());
