@@ -25,6 +25,7 @@ public class DictionaryFunctions : MonoBehaviour
     public void backPress()
     {
         clickedBack = true;
+        gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update
