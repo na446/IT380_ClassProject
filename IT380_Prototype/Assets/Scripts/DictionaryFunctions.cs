@@ -70,7 +70,7 @@ public class DictionaryFunctions : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        
+        firstTab();
     }
 
     public void learnedLetter(string letter)

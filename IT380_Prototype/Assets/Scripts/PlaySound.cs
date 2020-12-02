@@ -17,7 +17,7 @@ public class PlaySound : MonoBehaviour
         }
         else
         {
-            audio.clip = Resources.Load<AudioClip>("Sounds/" + letter);
+            audio.clip = Resources.Load<AudioClip>("Sounds/Dictionary/" + letter);
             gameObject.SetActive(true);
         }
     }

@@ -101,7 +101,7 @@ public class TutorialProgress : MonoBehaviour
         dir4Txt.text = "There are 2 types of writing tasks: one were it asks you to trace, and ...";
         yield return new WaitUntil(() => (okPressed));
         okPressed = false;
-        dir4Txt.text = "another where it'll ask you to write the letter/position from memory.";
+        dir4Txt.text = "another where it'll ask you to write a letter/position from memory.";
         yield return new WaitUntil(() => (okPressed));
         okPressed = false;
         dir4Txt.text = "I'll ask you to the write Alef in it's final form in a bit.";
