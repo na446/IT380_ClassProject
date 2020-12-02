@@ -55,6 +55,16 @@ public class UIFunctions : MonoBehaviour
 
     }
 
+    public void dicButton(GameObject thisButton)
+    {
+        thisButton.SetActive(false);
+    }
+
+    public void dicButton2(GameObject otherButton)
+    {
+        otherButton.SetActive(true);
+    }
+
     /// <summary>
     /// Method is only called to being contents for the first slide of the intro sequence. 
     /// </summary>

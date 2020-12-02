@@ -7,6 +7,21 @@ public class PlaySound : MonoBehaviour
 {
     private TutorialProgress tp;
 
+    public void changeSound(string letter)
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        if (letter == null)
+        {
+            audio.clip = null;
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            audio.clip = Resources.Load<AudioClip>("Sounds/" + letter);
+            gameObject.SetActive(true);
+        }
+    }
+    
     // Start is called before the first frame update
     void Start()
     {

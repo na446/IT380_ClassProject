@@ -35,7 +35,8 @@ public class HoverAndClick : MonoBehaviour
 
     void OnDisable()
     {
-        currPic.sprite = beforePic;
+        try { currPic.sprite = beforePic; }
+        catch (System.Exception) { }
     }
 
     void OnMouseExit()

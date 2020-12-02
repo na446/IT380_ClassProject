@@ -199,10 +199,7 @@ public class TutorialProgress : MonoBehaviour
     IEnumerator dicTutorial()
     {
         player.enabled = false;
-        dictUI.SetActive(true);
         items.SetActive(false);
-        dTab.SetActive(false);
-        backTab.SetActive(true);
         dir_4.SetActive(false);
         instructText.text = "Letters have different forms depending on where it's placed in the word (1/3)...";
         yield return new WaitForSeconds(5f);
@@ -212,10 +209,7 @@ public class TutorialProgress : MonoBehaviour
         yield return new WaitUntil(() => (dFun.clickedBack));//Wait for user to click on back tab
         //turns writing task objects off and ingame items on; quits and continues basicInstructions
         player.enabled = true;
-        dictUI.SetActive(false);
         items.SetActive(true);
-        backTab.SetActive(false);
-        dTab.SetActive(true);
     }
 
     IEnumerator popQuiz()
