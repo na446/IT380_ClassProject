@@ -21,7 +21,7 @@ public class WritingTask : MonoBehaviour
     [HideInInspector] public List<Vector2> fingerPos;
 
     private List<int> pointsPressed = new List<int>();
-    private List<int> answerKey = new List<int>() {0,1,2,3,4,5,6,7,8,9,10,11};//this should just be changed to an int and count how many points/children there under the trace gameobject.
+    //private List<int> answerKey = new List<int>() {0,1,2,3,4,5,6,7,8,9,10,11};//this should just be changed to an int and count how many points/children there under the trace gameobject.
 
     [HideInInspector] public bool inOrder = false;
     private bool startPressed = false;
@@ -138,21 +138,23 @@ public class WritingTask : MonoBehaviour
         bool pointsInOrder = true;
 
         //check that we have pressed each Tracing point, otherwise it can't possibly be in order
-        if (pointsPressed.Count == answerKey.Count)
-        {
+        //if (pointsPressed.Count == answerKey.Count)
+        //{
+            
             for (int i = 0; i < pointsPressed.Count; ++i)
             {
+                //Debug.Log(pointsPressed[i]);
                 if (pointsPressed[i] != i)
                 {
                     pointsInOrder = false;
                     break;
                 }
             }
-        }
-        else
-        {
-            pointsInOrder = false;
-        }
+        //}
+        //else
+        //{
+            //pointsInOrder = false;
+        //}
 
         //Debug.Log("Valid order: " + pointsInOrder);
         if (pointsInOrder && startPressed)
@@ -218,6 +220,7 @@ public class WritingTask : MonoBehaviour
                     if (hit.collider.CompareTag("Writeable") || hit.collider.CompareTag("Point"))
                     {
                         CreateDot();
+                        Debug.Log(hit.collider.name);
                         //If user hits tracing point, add to list
                         if (hit.collider.CompareTag("Point"))
                         {
@@ -271,6 +274,7 @@ public class WritingTask : MonoBehaviour
                         if (Vector2.Distance(currFingerPos, fingerPos[fingerPos.Count - 1]) > .1f)
                         {
                             CreateLine(currFingerPos);
+                            Debug.Log(hit.collider.name);
                             //If user hits tracing point, add to list
                             if (hit.collider.CompareTag("Point"))
                             {

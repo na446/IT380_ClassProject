@@ -70,6 +70,13 @@ public class DictionaryFunctions : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "03Level01Scene" || UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "KitchenScene")
+            progressDic["Alef"] = "Unlocked";
+        else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "FrontYardScene" || UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "ForestScene")
+        {
+            progressDic["Alef"] = "Unlocked";
+            progressDic["Baa"] = "Unlocked";
+        }
         firstTab();
     }
 

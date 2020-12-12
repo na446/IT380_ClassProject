@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/03Level01Scene.unity
     guid: 086ff281aa005be4e84680facf6ee418
+  - enabled: 1
+    path: Assets/Scenes/KitchenScene.unity
+    guid: 99e281ce88e6a2f46823dc6e986912fd
+  - enabled: 1
+    path: Assets/Scenes/FrontYardScene.unity
+    guid: bdd6657e8cd56bf44bab68c451bc9188
+  - enabled: 1
+    path: Assets/Scenes/ForestScene.unity
+    guid: 8d70ef27e1e8f1c48a7aae0bda0d072d
+  - enabled: 1
+    path: Assets/Scenes/OutsideCaveScene.unity
+    guid: 393a7e4106a42804987e9edd6202b2cf
   m_configObjects: {}
