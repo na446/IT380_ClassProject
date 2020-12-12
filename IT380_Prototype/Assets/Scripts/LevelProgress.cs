@@ -61,7 +61,6 @@ public class LevelProgress : MonoBehaviour
         dicButton.SetActive(false);
         yield return new WaitUntil(() => (wTask.inOrder));//Wait until player finsihed writing task
         yield return new WaitForSeconds(2f);
-        dicButton.SetActive(true);
         UnityEngine.SceneManagement.SceneManager.LoadScene("FrontYardScene");
     }
 
@@ -77,7 +76,6 @@ public class LevelProgress : MonoBehaviour
         StartCoroutine(writingAlef());
         yield return new WaitUntil(() => (wTask.inOrder));//Wait until player finsihed writing task
         yield return new WaitForSeconds(2f);
-        dicButton.SetActive(true);
         UnityEngine.SceneManagement.SceneManager.LoadScene("OutsideCaveScene");
     }
 
@@ -106,6 +104,7 @@ public class LevelProgress : MonoBehaviour
         items.SetActive(false);
         wTask.setTask("Write", "Alef", "isolated");
         yield return new WaitUntil(() => (wTask.inOrder));//Wait until player traces letter completetly.
+        dicButton.SetActive(true);
         yield return new WaitForSeconds(2f);
         //turns writing task objects off and ingame items on; quits and continues basicInstructions
         UIText.SetActive(false);
@@ -124,6 +123,7 @@ public class LevelProgress : MonoBehaviour
         items.SetActive(false);
         wTask.setTask("Trace", "Baa", "isolated");
         yield return new WaitUntil(() => (wTask.inOrder));//Wait until player traces letter completetly.
+        dicButton.SetActive(true);
         yield return new WaitForSeconds(2f);
         //turns writing task objects off and ingame items on; quits and continues basicInstructions
         UIText.SetActive(false);

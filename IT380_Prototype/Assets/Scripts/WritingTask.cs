@@ -104,6 +104,8 @@ public class WritingTask : MonoBehaviour
             default:
                 break;
         }
+        PlaySound playSound = GameObject.Find("Sound Button").GetComponent<PlaySound>();
+        playSound.changeLetter(letter);
 
         foreach (Transform child in tracePts.transform)
         {

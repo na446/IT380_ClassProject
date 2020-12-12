@@ -72,23 +72,28 @@ public class DictionaryFunctions : MonoBehaviour
     {
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "03Level01Scene" || UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "KitchenScene")
             progressDic["Alef"] = "Unlocked";
-        else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "FrontYardScene" || UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "ForestScene")
+        /*else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "FrontYardScene" || UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "ForestScene")
         {
             progressDic["Alef"] = "Unlocked";
             progressDic["Baa"] = "Unlocked";
-        }
+        }*/
+
         firstTab();
     }
 
     public void learnedLetter(string letter)
     {
+        dictionaryprogress dicProg = GameObject.Find("DictionaryProgress").GetComponent<dictionaryprogress>();
         progressDic[letter] = "Unlocked";
+        dicProg.DicUpdate(letter);
     }
 
     public void getImage(TMP_Text line)
     {
         string currState = "";
-        if (progressDic.TryGetValue(line.text, out currState) && currState == "Unlocked")
+        dictionaryprogress dicProg = GameObject.Find("DictionaryProgress").GetComponent<dictionaryprogress>();
+
+        if (dicProg.checkLetter(line.text, currState))//if (progressDic.TryGetValue(line.text, out currState) && currState == "Unlocked")
         {
             playSound.changeSound(line.text);
             try
@@ -99,6 +104,8 @@ public class DictionaryFunctions : MonoBehaviour
             {
                 Debug.Log("File is not in Resources folder.");
             }
+            if (dicProg.checkedLetter == line.text)
+                dicProg.letterChecked();
         }
         else
         {

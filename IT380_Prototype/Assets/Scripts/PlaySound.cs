@@ -22,16 +22,33 @@ public class PlaySound : MonoBehaviour
         }
     }
     
+    public void changeLetter(string letter)
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        if (letter == null)
+        {
+            audio.clip = null;
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            audio.clip = Resources.Load<AudioClip>("Sounds/" + letter);
+            gameObject.SetActive(true);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        tp = GameObject.FindGameObjectWithTag("UI").GetComponent<TutorialProgress>();
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "02TutorialScene")
+            tp = GameObject.FindGameObjectWithTag("UI").GetComponent<TutorialProgress>();
 
         Button b = GetComponent<Button>();
         AudioSource audio = GetComponent<AudioSource>();
         b.onClick.AddListener(delegate () {
             audio.Play();
-            tp.audioPlayed = true;
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "02TutorialScene")
+                tp.audioPlayed = true;
         }
         );
     }
