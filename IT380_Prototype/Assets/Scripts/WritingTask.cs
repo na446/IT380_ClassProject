@@ -23,7 +23,7 @@ public class WritingTask : MonoBehaviour
     private List<int> pointsPressed = new List<int>();
     //private List<int> answerKey = new List<int>() {0,1,2,3,4,5,6,7,8,9,10,11};//this should just be changed to an int and count how many points/children there under the trace gameobject.
 
-    [HideInInspector] public bool inOrder = false;
+    [HideInInspector] public bool inOrder;
     private bool startPressed = false;
     private int isSuffering = 0;//keeps track of how many errors the user made during the writing task
     private string currLetter; //keeps track of what letter is assigned this time
@@ -66,10 +66,10 @@ public class WritingTask : MonoBehaviour
         taskWrong.SetActive(true);
         TMPro.TMP_Text writeError = taskWrong.GetComponent<TMPro.TMP_Text>();
         writeError.text = message;
-        yield return new WaitForSeconds(2.5f);
-        taskWrong.SetActive(false);
         if (isSuffering >= 10 && currDirection == "Write")
             showTracing();
+        yield return new WaitForSeconds(2.5f);
+        taskWrong.SetActive(false);
     }
 
     /// <summary>
@@ -99,6 +99,8 @@ public class WritingTask : MonoBehaviour
                 writtenDir.text = "Write " + letter + " in it's " + position + " form";
 
                 picTrace.sprite = Resources.Load<Sprite>("Letters/Traced/noneTRACE");
+                if (currLetter == "Alef" && currPos == "isolated")
+                    picTrace.sprite = Resources.Load<Sprite>("Letters/Traced/noneALEF");
                 break;
 
             default:
@@ -163,7 +165,8 @@ public class WritingTask : MonoBehaviour
         {
             StartCoroutine(displayDone());
             isSuffering = 0;
-            dicFunc.learnedLetter(currLetter);
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "02TutorialScene")
+                dicFunc.learnedLetter(currLetter);
         }
 
         return pointsInOrder;
@@ -222,7 +225,7 @@ public class WritingTask : MonoBehaviour
                     if (hit.collider.CompareTag("Writeable") || hit.collider.CompareTag("Point"))
                     {
                         CreateDot();
-                        Debug.Log(hit.collider.name);
+                        //Debug.Log(hit.collider.name);
                         //If user hits tracing point, add to list
                         if (hit.collider.CompareTag("Point"))
                         {
@@ -276,7 +279,7 @@ public class WritingTask : MonoBehaviour
                         if (Vector2.Distance(currFingerPos, fingerPos[fingerPos.Count - 1]) > .1f)
                         {
                             CreateLine(currFingerPos);
-                            Debug.Log(hit.collider.name);
+                            //Debug.Log(hit.collider.name);
                             //If user hits tracing point, add to list
                             if (hit.collider.CompareTag("Point"))
                             {
@@ -293,7 +296,7 @@ public class WritingTask : MonoBehaviour
                                         StartCoroutine(displayErr("Wrong starting point. Remember, write right to left."));
                                     else
                                         inOrder = ValidatePressedOrder();
-                                    
+
                                     DeleteLines();
                                     //if false empty the list for retry
                                     if (!inOrder && startPressed)

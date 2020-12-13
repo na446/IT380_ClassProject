@@ -14,7 +14,7 @@ public class DictionaryFunctions : MonoBehaviour
     //Ideally this will later expand to values of final, medial, inital, and isolated -- so that letter wont be unlocked unless user traces the different positions the user traced.
     public static Dictionary<string, string> progressDic = new Dictionary<string, string>()
     {
-        { "Alef", "Locked" },
+        { "Alef", "Unlocked" },
         { "Baa", "Locked" },
         { "Taa", "Locked" },
         { "Thaa", "Locked" },
@@ -91,26 +91,50 @@ public class DictionaryFunctions : MonoBehaviour
     public void getImage(TMP_Text line)
     {
         string currState = "";
-        dictionaryprogress dicProg = GameObject.Find("DictionaryProgress").GetComponent<dictionaryprogress>();
 
-        if (dicProg.checkLetter(line.text, currState))//if (progressDic.TryGetValue(line.text, out currState) && currState == "Unlocked")
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "02TutorialScene")
         {
-            playSound.changeSound(line.text);
-            try
+            if (progressDic.TryGetValue(line.text, out currState) && currState == "Unlocked")
             {
-                currDef.sprite = Resources.Load<Sprite>("pos/pos_" + line.text.ToLower());
+                playSound.changeSound(line.text);
+                try
+                {
+                    currDef.sprite = Resources.Load<Sprite>("pos/pos_" + line.text.ToLower());
+                }
+                catch (System.Exception)
+                {
+                    Debug.Log("File is not in Resources folder.");
+                }
             }
-            catch (System.Exception)
+            else
             {
-                Debug.Log("File is not in Resources folder.");
+                playSound.changeSound(null);
+                notLearned();
             }
-            if (dicProg.checkedLetter == line.text)
-                dicProg.letterChecked();
         }
         else
         {
-            playSound.changeSound(null);
-            notLearned();
+            dictionaryprogress dicProg = GameObject.Find("DictionaryProgress").GetComponent<dictionaryprogress>();
+
+            if (dicProg.checkLetter(line.text, currState))
+            {
+                playSound.changeSound(line.text);
+                try
+                {
+                    currDef.sprite = Resources.Load<Sprite>("pos/pos_" + line.text.ToLower());
+                }
+                catch (System.Exception)
+                {
+                    Debug.Log("File is not in Resources folder.");
+                }
+                if (dicProg.checkedLetter == line.text)
+                    dicProg.letterChecked();
+            }
+            else
+            {
+                playSound.changeSound(null);
+                notLearned();
+            }
         }
     }
 

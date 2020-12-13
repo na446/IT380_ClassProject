@@ -186,9 +186,9 @@ public class TutorialProgress : MonoBehaviour
         arw.gameObject.SetActive(true);
         instructText.text = "Trace the letter by holding down the left mouse button across the canvas.";
         yield return new WaitUntil(() => (wTask.inOrder));//Wait until player traces letter completetly.
+        UIText.SetActive(false);
         yield return new WaitForSeconds(2f);
         //turns writing task objects off and ingame items on; quits and continues basicInstructions
-        UIText.SetActive(false);
         wTask.DeleteLines();
         player.enabled = true;
         task.SetActive(false);

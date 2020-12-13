@@ -11,6 +11,7 @@ public class HoverAndClick : MonoBehaviour
     public Sprite beforePic;
     public Sprite newSprite;
     public Sprite hoverSprite;
+    public GameObject musicPanel;
 
     void Hovering()
     {
@@ -25,6 +26,8 @@ public class HoverAndClick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        musicPanel.SetActive(false);
+
         currPic = gameObject.GetComponent<SpriteRenderer>();
     }
 
@@ -50,6 +53,10 @@ public class HoverAndClick : MonoBehaviour
                 gameObject.GetComponent<AudioSource>().Play();
         if (gameObject.CompareTag("Interactable") && gameObject.name == "Pillow")
             StartCoroutine(tiltThis());
+        if (gameObject.CompareTag("Interactable") && gameObject.name == "BirdOther")
+        {
+            musicPanel.SetActive(true);
+        }
         ChangeSprite();
         clicked = true;
     }
