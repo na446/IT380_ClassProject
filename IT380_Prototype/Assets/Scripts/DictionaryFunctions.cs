@@ -83,7 +83,7 @@ public class DictionaryFunctions : MonoBehaviour
 
     public void learnedLetter(string letter)
     {
-        dictionaryprogress dicProg = GameObject.Find("DictionaryProgress").GetComponent<dictionaryprogress>();
+        dictionaryprogress dicProg = GameObject.Find("Progress").GetComponent<dictionaryprogress>();
         progressDic[letter] = "Unlocked";
         dicProg.DicUpdate(letter);
     }
@@ -114,7 +114,7 @@ public class DictionaryFunctions : MonoBehaviour
         }
         else
         {
-            dictionaryprogress dicProg = GameObject.Find("DictionaryProgress").GetComponent<dictionaryprogress>();
+            dictionaryprogress dicProg = GameObject.Find("Progress").GetComponent<dictionaryprogress>();
 
             if (dicProg.checkLetter(line.text, currState))
             {

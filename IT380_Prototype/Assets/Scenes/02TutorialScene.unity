@@ -629,6 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: b8af129e56d86044ba18e82a0f1ec2a0, type: 2}
+  currentValue: 0
 --- !u!114 &79004078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10555,7 +10556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 14, y: -15.09375}
+  m_AnchoredPosition: {x: 14, y: -15.093735}
   m_SizeDelta: {x: -130.39276, y: -152.19421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1451944375
@@ -12055,7 +12056,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1722143576}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1722143574}
+        m_MethodName: changeSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1722143576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13090,6 +13102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 9f53b6a69bc73ea4e81e83caf679cec5, type: 2}
+  currentValue: 0
 --- !u!114 &1980681153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13841,6 +13854,7 @@ GameObject:
   - component: {fileID: 2079358249}
   - component: {fileID: 2079358248}
   - component: {fileID: 2079358247}
+  - component: {fileID: 2079358250}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -13958,6 +13972,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079358245}
   m_CullTransparentMesh: 0
+--- !u!114 &2079358250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079358245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a4dc74e14166f45b0771ea8df95117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settinPanel: {fileID: 789026096}
+  dd: {fileID: 428896990}
+  speedP: 1
 --- !u!1 &2138457484
 GameObject:
   m_ObjectHideFlags: 0

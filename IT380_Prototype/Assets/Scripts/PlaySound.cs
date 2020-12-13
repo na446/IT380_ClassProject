@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class PlaySound : MonoBehaviour
 {
     private TutorialProgress tp;
+
+    //public AudioMixerGroup pitchBendGroup;
 
     public void changeSound(string letter)
     {
@@ -20,6 +23,7 @@ public class PlaySound : MonoBehaviour
             audio.clip = Resources.Load<AudioClip>("Sounds/Dictionary/" + letter);
             gameObject.SetActive(true);
         }
+        changeSpeed();
     }
     
     public void changeLetter(string letter)
@@ -35,6 +39,21 @@ public class PlaySound : MonoBehaviour
             audio.clip = Resources.Load<AudioClip>("Sounds/" + letter);
             gameObject.SetActive(true);
         }
+        changeSpeed();
+    }
+
+    /// <summary>
+    /// Change tempo of prounication based on Settings.
+    /// </summary>
+    public void changeSpeed()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        var mixer = Resources.Load<AudioMixerGroup>("Pronunciation");
+
+        audio.outputAudioMixerGroup = mixer;
+        Settings settingRef = GameObject.Find("Settings").GetComponent<Settings>();
+        audio.pitch = settingRef.speedP;
+        mixer.audioMixer.SetFloat("pitchBend", 1f / settingRef.speedP);
     }
 
     // Start is called before the first frame update
