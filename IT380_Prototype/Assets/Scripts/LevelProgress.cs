@@ -56,7 +56,7 @@ public class LevelProgress : MonoBehaviour
         okPressed = false;
         UIText.SetActive(false);
 
-        yield return new WaitUntil(() => (taskObj.clicked));//Wait until player clicks on desk
+        yield return new WaitUntil(() => (taskObj.clicked));//Wait until player clicks on door
         StartCoroutine(writingBaa());
         dicButton.SetActive(false);
         yield return new WaitUntil(() => (wTask.inOrder));//Wait until player finsihed writing task
@@ -102,7 +102,7 @@ public class LevelProgress : MonoBehaviour
         task.SetActive(true);
         taskUI.SetActive(true);
         items.SetActive(false);
-        wTask.setTask("Write", "Alef", "isolated");
+        wTask.setTask("Write", "Alef", "final");
         yield return new WaitUntil(() => (wTask.inOrder));//Wait until player traces letter completetly.
         dicButton.SetActive(true);
         yield return new WaitForSeconds(2f);

@@ -342,12 +342,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1488149554}
-  m_RootOrder: 4
+  m_Father: {fileID: 1509582835}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 701.6, y: -405.4}
+  m_AnchoredPosition: {x: 198, y: -255}
   m_SizeDelta: {x: 65.47827, y: 68.60217}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6014714
@@ -877,8 +877,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.2001343, y: -1}
-  m_SizeDelta: {x: 391.5443, y: 90.67595}
+  m_AnchoredPosition: {x: -43.62, y: -1}
+  m_SizeDelta: {x: 307.04907, y: 90.67595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &31101046
 MonoBehaviour:
@@ -901,7 +901,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 51
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -912,7 +912,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Song #3
+  m_Text: Ahwak - Abdel Halim Hafez
 --- !u!222 &31101047
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2709,9 +2709,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 9f53b6a69bc73ea4e81e83caf679cec5,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 42f15eeef7160b34fbeda266072cd13d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d73de9b0792a80f4ab4edd43ea0e5d08, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.06
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3495,7 +3495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -205, y: 248.62}
+  m_AnchoredPosition: {x: -185, y: 225}
   m_SizeDelta: {x: 194.58264, y: 31.456444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &565591849
@@ -4282,8 +4282,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.2, y: -1.1}
-  m_SizeDelta: {x: 391.5443, y: 90.67595}
+  m_AnchoredPosition: {x: -56.23, y: -1.1}
+  m_SizeDelta: {x: 289.48273, y: 90.67595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784629641
 MonoBehaviour:
@@ -4306,7 +4306,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 51
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -4317,7 +4317,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Song #1
+  m_Text: 3 Daqat - Abu Ft. Yousra
 --- !u!222 &784629642
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5064,7 +5064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 409.40002, y: 99.10004}
+  m_AnchoredPosition: {x: 349, y: 99.10004}
   m_SizeDelta: {x: 40.739555, y: 41.231903}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1013493673
@@ -6769,7 +6769,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -53.198425, y: 41.00714}
+  m_AnchoredPosition: {x: -53.198425, y: 39.1}
   m_SizeDelta: {x: -30.086304, y: -32.112183}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1370144178
@@ -7542,7 +7542,6 @@ RectTransform:
   - {fileID: 1667366078}
   - {fileID: 1509582835}
   - {fileID: 1162682538}
-  - {fileID: 4265758}
   m_Father: {fileID: 264899334}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7790,12 +7789,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1160746740}
+  - {fileID: 4265758}
   m_Father: {fileID: 1488149554}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -250.09375, y: -77}
+  m_AnchoredPosition: {x: -225, y: -88}
   m_SizeDelta: {x: 414.90723, y: 435.12964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1509582836
@@ -7976,8 +7976,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.2001343, y: 8}
-  m_SizeDelta: {x: 391.5443, y: 90.67595}
+  m_AnchoredPosition: {x: -44.72, y: 8}
+  m_SizeDelta: {x: 304.61743, y: 90.67595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1538539766
 MonoBehaviour:
@@ -8000,7 +8000,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 51
+    m_FontSize: 39
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -8011,7 +8011,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Song #2
+  m_Text: "Alphabet song\n\u062E \u062D \u062C \u062B \u062A \u0628 \u0623"
 --- !u!222 &1538539767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8092,7 +8092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -17.1, y: 18.33}
+  m_AnchoredPosition: {x: 26, y: 18.329987}
   m_SizeDelta: {x: 161, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1628558077
@@ -8386,7 +8386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 277.90625, y: -88.776}
+  m_AnchoredPosition: {x: 236, y: -95}
   m_SizeDelta: {x: 390.06232, y: 370.1406}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1667366079
@@ -8591,7 +8591,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258.31, y: 147.53}
+  m_AnchoredPosition: {x: -223.8, y: 101}
   m_SizeDelta: {x: 367.24005, y: 197.22488}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1725613476
